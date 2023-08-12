@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>[[${pageTitle}]]</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <script type="text/javascript" th:src="@{/js/cssandjs/actions.js}"></script>
+    <style>
+        body {
+            background-image: url('../static/images/ce3.png');
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid ">
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <div class="text-center"><h1>[[${pageTitle}]]</h1></div>
+            </div>
+
+<div class="card-body">
+    <form th:action="@{/users/save}" method="post" th:object="${user}">
+        <input type="hidden" th:field="*{id}">
+        <!-- 2 column grid layout with text inputs for the first and last names -->
+        <div class="row mb-4">
+            <div class="col">
+                <div class="form-outline">
+                    <input type="text" th:field="*{firstname}" class="form-control" required minlength="8" maxlength="45"/>
+                    <label class="form-label" >FIRST NAME</label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-outline">
+                    <input type="text" th:field="*{lastname}" class="form-control " required minlength="2" maxlength="45"/>
+                    <label class="form-label">LAST NAME</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Text input -->
+        <div class="form-outline mb-4">
+            <input type="email" th:field="*{email}" class="form-control " required minlength="2" maxlength="45" />
+            <label class="form-label" >E-MAIL</label>
+        </div>
+        <div class="form-outline mb-4">
+            <input type="password" th:field="*{password}" class="form-control " required minlength="2" maxlength="45" />
+            <label class="form-label" >PASSWORD</label>
+        </div>
+
+        <!-- Text input -->
+        <div class="form-outline mb-4">
+            <input type="date" th:field="*{dateNaissance}" class="form-control " required minlength="2" maxlength="45" />
+            <label class="form-label" >DATE NAISSANCE</label>
+        </div>
+
+
+        <!-- Checkbox -->
+        <div class="form-check d-flex justify-content-center mb-4">
+            <input class="form-check-input me-2" type="checkbox" value="" th:field="*{enable}" checked />
+            <label class="form-check-label" > Check Up Effectué ? </label>
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4">SAVE</button>
+    </form>
+<!--    <form th:action="@{/users/save}" method="post" th:object="${user}" style="max-width:600px; margin:0 auto;">-->
+<!--        <input type="hidden" th:field="*{id}">-->
+<!--        <div class="border border border-primary rounded p-3">-->
+<!--            <div class="form-group row">-->
+<!--                <label class="col-sm-4 col-form-label">E-mail</label>-->
+<!--                <div class="col-sm-4">-->
+<!--                    <input type="email" th:field="*{email}" class="form-control" required minlength="8" maxlength="45"/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="form-group row">-->
+<!--                <label class="col-sm-4 col-form-label">FirstName</label>-->
+<!--                <div class="col-sm-4">-->
+<!--                    <input type="text" th:field="*{firstname}" class="form-control " required minlength="2" maxlength="45"/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="form-group row">-->
+<!--                <label class="col-sm-4 col-form-label">LastName</label>-->
+<!--                <div class="col-sm-4">-->
+<!--                    <input type="text" th:field="*{lastname}" class="form-control" required minlength="2" maxlength="45"/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="form-group row">-->
+<!--                <label class="col-sm-4 col-form-label">Password</label>-->
+<!--                <div class="col-sm-4">-->
+<!--                    <input type="password" th:field="*{password}" class="form-control" required minlength="5" maxlength="15"/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="form-group row">-->
+<!--                <label class="col-sm-4 col-form-label">BIRTHDAY</label>-->
+<!--                <div class="col-sm-4">-->
+<!--                    <input type="date" th:field="*{dateNaissance}" class="form-control " required minlength="2" maxlength="10"/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="form-group row">-->
+<!--                <label class="col-sm-4 col-form-label">Enable</label>-->
+<!--                <div class="col-sm-4">-->
+<!--                    <input type="checkbox" th:field="*{enable}" />-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            </div>-->
+<!--<div class="card-footer">-->
+<!--    <div class="text-center">-->
+<!--        <button type="submit" class="btn btn-primary m-2">Save</button>-->
+<!--        <button type="reset" class="btn btn-danger m-2" onclick="cancelForm">Cancel</button>-->
+<!--    </div>-->
+<!--</div>-->
+<!--            </form>-->
+        </div>
+</div>
+</div>
+</div>
+
+</body>
+ </script>
+</html>
